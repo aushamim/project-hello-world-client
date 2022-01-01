@@ -80,18 +80,22 @@ const Header = () => {
           <Button
             variant="contained"
             disableElevation
-            startIcon={<AddCircleOutlineIcon />}
             sx={{
               background: "#1877f2",
               padding: "7px",
-              paddingRight: "15px",
-              paddingLeft: "15px",
+              paddingRight: { lg: "15px" },
+              paddingLeft: { lg: "15px" },
               marginRight: "20px",
               marginLeft: "10px",
               borderRadius: "15px",
             }}
           >
-            Create
+            <AddCircleOutlineIcon />
+            <Typography
+              sx={{ display: { sm: "none", lg: "block" }, marginLeft: "10px" }}
+            >
+              Create
+            </Typography>
           </Button>
           <img
             src="https://hello-p.netlify.app/static/media/venti.bca7c018ca19eab4b1df.png"
