@@ -1,7 +1,7 @@
 .Posts-container{
     margin-left:auto;
     margin-right: auto;
-    border: 2px solid black;
+  
     overflow: scroll;
     height: 600px;
     width:fit-content;
