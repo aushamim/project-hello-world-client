@@ -12,7 +12,7 @@ const Posts = () => {
     },[])
     return (
         <div className='Posts-container'>
-            <h1>neews feed</h1>
+            
             {
                 userPosts.map(post=><Post
                 post={post}
