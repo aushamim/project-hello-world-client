@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-const post = ({post}) => {
+import AlertDialog from './Dialog';
+const Post = ({post}) => {
     const{userName,profile_img,Post,dateTime,image}=post;
+    const [open,setOpen]=useState(false)
     const handlePost=()=>{
-        console.log('hello i am workking')
+        setOpen(true)
     }
     return (
-        <div style={{marginTop:'50px'}}>
+        <div style={{marginTop:40,boxShadow:'0px 0px 2px gray',borderRadius:4}}>
              <Card sx={{ width:600, marginLeft:'auto',marginRight:'auto',padding:3 }}>
       <CardHeader
         avatar={
@@ -21,7 +23,9 @@ const post = ({post}) => {
         title={userName}
         subheader={dateTime}
       />
-     
+     {
+         open&&<AlertDialog open={open} setOpen={setOpen} ></AlertDialog>
+     }
       <CardContent>
         <Typography variant="body2" color="text.secondary">
         {Post}
@@ -49,4 +53,4 @@ const post = ({post}) => {
     );
 };
 
-export default post;
+export default Post;
