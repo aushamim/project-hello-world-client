@@ -6,7 +6,6 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      {/* Large Device */}
       <Box
         sx={{
           padding: "15px",
@@ -14,11 +13,18 @@ const Header = () => {
           paddingRight: "50px",
           backgroundColor: "white",
           display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
+          gridTemplateColumns: { lg: "repeat(3,1fr)" },
+          gridGap: 5,
           boxShadow: "1px 1px 5px #ccc",
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: { xs: "center" },
+          }}
+        >
           <Box
             sx={{ background: "#eff4fc", padding: "5px", borderRadius: "15px" }}
           >
@@ -54,7 +60,7 @@ const Header = () => {
         <Box
           sx={{
             gridColumn: "span 2",
-            display: "flex",
+            display: { xs: "none", lg: "flex" },
             alignItems: "center",
             justifyContent: "end",
           }}
@@ -92,7 +98,10 @@ const Header = () => {
           >
             <AddCircleOutlineIcon />
             <Typography
-              sx={{ display: { sm: "none", lg: "block" }, marginLeft: "10px" }}
+              sx={{
+                display: { xs: "none", sm: "none", lg: "block" },
+                marginLeft: "10px",
+              }}
             >
               Create
             </Typography>
@@ -104,8 +113,6 @@ const Header = () => {
           />
         </Box>
       </Box>
-
-      {/* Small Device */}
     </>
   );
 };
