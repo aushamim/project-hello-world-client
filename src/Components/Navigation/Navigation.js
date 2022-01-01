@@ -18,6 +18,7 @@ const Navigation = () => {
           padding: "25px",
           backgroundColor: "white",
           boxShadow: "1px 1px 5px #ccc",
+          borderRadius: "15px",
           display: { xs: "none", lg: "block" },
         }}
       >
