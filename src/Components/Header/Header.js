@@ -30,7 +30,7 @@ const Header = () => {
           variant="h6"
           sx={{ fontWeight: 500, color: "text.secondary", marginLeft: "10px" }}
         >
-          HELLO WORLD
+          BYE WORLD
         </Typography>
       </Box>
     </Box>
