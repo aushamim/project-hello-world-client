@@ -1,6 +1,7 @@
+import { Box, Chip, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Contact from './Contact/Contact';
-
+import List from '@mui/material/List';
 const Contacts = () => {
     const [contacts,setContacts]=useState([]);
     const [isLoading,setIsLoading]=useState(false);
@@ -10,15 +11,27 @@ const Contacts = () => {
         .then(data=>setContacts(data))
     },[])
     return (
-        <div>
-            <h1>hello i am contacts</h1>
+        <Box>
+        <Box
+        sx={{display:'flex',justifyContent:'space-between'}}
+        >
+               <Typography>
+                   Contacts
+               </Typography>
+               <Chip
+               sx={{marginRight:2}}
+               label={contacts.length}/>
+           </Box>
+           <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             {
                 contacts.map(contact=><Contact 
                     key={contact.id}
+                    total={contacts.length}
                     contact={contact}
                     ></Contact>)
             }
-        </div>
+            </List>
+        </Box>
     );
 };
 
