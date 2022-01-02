@@ -13,9 +13,10 @@ const Contacts = () => {
     return (
         <Box 
         sx={{
+            marginTop:'20px',
             marginLeft: { xs: "auto", lg: "100px" },
             marginRight: { xs: "auto", lg: "10px" },
-            width: { xs: "max-content", lg: "266px" },
+            width: { xs: "max-content", lg: "284px" },
         }}
         >
         <Box

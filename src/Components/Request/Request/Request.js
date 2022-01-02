@@ -3,7 +3,6 @@ import {
      Avatar, 
      Box, 
      Button, 
-     IconButton, 
      Typography
     } from '@mui/material';
 
@@ -16,7 +15,7 @@ const Request = ({request}) => {
         <Box
       sx={{
             backgroundColor:'white',
-            marginTop:3,
+            marginBottom:1,
             width: { xs: "max-content", lg:"266px" },
             boxShadow:'1px,1px,3px gray',
             borderRadius:3,
