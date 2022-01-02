@@ -82,6 +82,13 @@ const Login = () => {
                 },
               }}
             >
+              <Button sx={{ borderRadius: "5px", margin: "5px" }}>
+                <img
+                  src={googleIcon}
+                  alt="Google Icon"
+                  style={{ width: "30px" }}
+                />
+              </Button>
               <Button
                 sx={{
                   background: "#eff4fc",
