@@ -27,7 +27,11 @@ const Home = () => {
         >
           <Posts></Posts>
         </div>
-        <div style={{ padding: "20px" }}>
+        <div style={{ 
+          padding: "20px",
+          marginLeft:{xs:'auto',lg:10},
+          marginRight:{xs:'auto',lg:5}
+          }}>
           <Contacts></Contacts>
         </div>
       </Box>
