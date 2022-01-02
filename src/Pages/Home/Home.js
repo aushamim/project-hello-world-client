@@ -3,6 +3,7 @@ import React from "react";
 import Contacts from "../../Components/Contacts/Contacts";
 import Navigation from "../../Components/Navigation/Navigation";
 import Posts from "../../Components/Posts/Posts";
+import Requests from "../../Components/Request/Requests";
 
 const Home = () => {
   return (
@@ -29,9 +30,8 @@ const Home = () => {
         </div>
         <div style={{ 
           padding: "20px",
-          marginLeft:{xs:'auto',lg:10},
-          marginRight:{xs:'auto',lg:5}
           }}>
+          <Requests></Requests>
           <Contacts></Contacts>
         </div>
       </Box>
