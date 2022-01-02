@@ -1,10 +1,12 @@
 import { Box } from "@mui/material";
 import React from "react";
+import Contacts from "../../Components/Contacts/Contacts";
 import Navigation from "../../Components/Navigation/Navigation";
 import NewPost from "../../Components/NewPost/NewPost";
 import NewPostBox from "../../Components/NewPost/NewPostBox";
 import Posts from "../../Components/Posts/Posts";
 import Story from "../../Components/Story/Story";
+import Requests from "../../Components/Request/Requests";
 
 const Home = () => {
   return (
@@ -35,7 +37,14 @@ const Home = () => {
           <Posts></Posts>
         </div>
         {/* Right Rail */}
-        <div style={{ padding: "20px" }}></div>
+        <div
+          style={{
+            padding: "20px",
+          }}
+        >
+          <Requests></Requests>
+          <Contacts></Contacts>
+        </div>
       </Box>
     </>
   );

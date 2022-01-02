@@ -9,7 +9,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AlertDialog from "./Dialog";
 const Post = ({ post }) => {
   const { userName, profile_img, Post, dateTime, image } = post;
@@ -34,7 +34,7 @@ const Post = ({ post }) => {
         avatar={<Avatar alt={userName} src={profile_img} />}
         action={
           <IconButton onClick={handlePost} aria-label="settings">
-            <MoreVertIcon />
+            <MoreHorizIcon />
           </IconButton>
         }
         title={userName}
