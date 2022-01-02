@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
+import Contacts from "../../Components/Contacts/Contacts";
 import Navigation from "../../Components/Navigation/Navigation";
 import Posts from "../../Components/Posts/Posts";
 
@@ -26,7 +27,9 @@ const Home = () => {
         >
           <Posts></Posts>
         </div>
-        <div style={{ padding: "20px" }}></div>
+        <div style={{ padding: "20px" }}>
+          <Contacts></Contacts>
+        </div>
       </Box>
     </>
   );
