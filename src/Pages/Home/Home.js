@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Navigation from "../../Components/Navigation/Navigation";
+import NewPost from "../../Components/NewPost/NewPost";
+import NewPostBox from "../../Components/NewPost/NewPostBox";
 import Posts from "../../Components/Posts/Posts";
 import Story from "../../Components/Story/Story";
 
@@ -28,6 +30,8 @@ const Home = () => {
           }}
         >
           <Story></Story>
+          <NewPost></NewPost>
+          <NewPostBox></NewPostBox>
           <Posts></Posts>
         </div>
         {/* Right Rail */}
