@@ -69,6 +69,7 @@ const Header = () => {
             type="text"
             id="search"
             placeholder="Search"
+            autoComplete="off"
             style={{
               width: "300px",
               marginRight: "10px",
