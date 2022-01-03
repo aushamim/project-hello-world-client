@@ -1,9 +1,9 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
-// import useAuth from "../../Hooks/UseAuth/UseAuth";
+import useAuth from "../Hooks/useAuth";
 
 const NewPost = () => {
-  //   const { handlePostTypeText, handlePostType, handleViewType } = useAuth();
+  const { handlePostTypeText, handlePostType, handleViewType } = useAuth();
   return (
     <div
       style={{
@@ -20,10 +20,10 @@ const NewPost = () => {
         }}
       >
         <Button
-        //   onClick={() => {
-        //     handlePostTypeText();
-        //     handleViewType(true);
-        //   }}
+          onClick={() => {
+            handlePostTypeText();
+            handleViewType(true);
+          }}
         >
           {/* Pen Icon */}
           <svg
@@ -50,10 +50,10 @@ const NewPost = () => {
         </Button>
 
         <Button
-        //   onClick={() => {
-        //     handlePostType();
-        //     handleViewType(true);
-        //   }}
+          onClick={() => {
+            handlePostType();
+            handleViewType(true);
+          }}
         >
           {/* Image Icon */}
           <svg
@@ -82,10 +82,10 @@ const NewPost = () => {
         </Button>
 
         <Button
-        //   onClick={() => {
-        //     handlePostType();
-        //     handleViewType(true);
-        //   }}
+          onClick={() => {
+            handlePostType();
+            handleViewType(true);
+          }}
         >
           {/* Video Icon */}
           <svg
@@ -118,10 +118,10 @@ const NewPost = () => {
         </Button>
 
         <Button
-        //   onClick={() => {
-        //     handlePostType();
-        //     handleViewType(true);
-        //   }}
+          onClick={() => {
+            handlePostType();
+            handleViewType(true);
+          }}
         >
           {/* Live Icon */}
           <svg

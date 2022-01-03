@@ -15,12 +15,31 @@ import firebaseAuthentication from "../../Firebase/FirebaseInit";
 firebaseAuthentication();
 
 const useFirebase = () => {
+  // Post Type
+  const [postType, setPostType] = useState("");
+
+  // View Type
+  const [view, setView] = useState(false);
+
   // declare user state
   const [user, setUser] = useState({});
   // user state change state
   const [isLoading, setIsLoading] = useState(true);
   // error state
   const [authError, setAuthError] = useState("");
+
+  // Post Type
+  const handlePostTypeText = () => {
+    setPostType("text");
+  };
+  const handlePostType = () => {
+    setPostType("others");
+  };
+
+  // View Type
+  const handleViewType = (x) => {
+    setView(x);
+  };
 
   // declare auth
   const auth = getAuth();
@@ -120,6 +139,11 @@ const useFirebase = () => {
     logout,
     user,
     isLoading,
+    postType,
+    view,
+    handleViewType,
+    handlePostTypeText,
+    handlePostType,
   };
 };
 

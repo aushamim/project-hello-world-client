@@ -1,8 +1,10 @@
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-// import useAuth from "../../Hooks/UseAuth/UseAuth";
+import useAuth from "../Hooks/useAuth";
 
 const NewPostBox = () => {
+  const { postType, view, handleViewType } = useAuth();
+
   //   const { user } = useAuth();
   //   const [singleUserID, setSingleUserID] = useState([]);
   //   useEffect(() => {
@@ -12,7 +14,6 @@ const NewPostBox = () => {
   //       .then((newData) => setSingleUserID(newData[0]._id));
   //   }, [user.email]);
 
-  //   const { postType, view, handleViewType } = useAuth();
   //   const handlePost = () => {
   //     const postData = document.getElementById("postData").value;
   //     const UID = { UID: singleUserID };
@@ -39,17 +40,19 @@ const NewPostBox = () => {
   return (
     <div
       style={{
+        display: view ? "block" : "none",
         background: "white",
         padding: "5px",
         borderRadius: "10px",
         marginTop: "10px",
         boxShadow: "1px 1px 5px #ccc",
       }}
-      //   style={{ display: view ? "block" : "none" }}
     >
       <div
-        style={{ padding: "10px" }}
-        //   style={{ display: postType === "text" ? "block" : "none" }}
+        style={{
+          display: postType === "text" ? "block" : "none",
+          padding: "10px",
+        }}
       >
         <TextField id="postData" label="Post" multiline rows={4} fullWidth />
 
@@ -58,9 +61,9 @@ const NewPostBox = () => {
         >
           <Button
             title="Close"
-            // onClick={() => {
-            //   handleViewType(false);
-            // }}
+            onClick={() => {
+              handleViewType(false);
+            }}
           >
             {/* Cross Icon */}
             <svg
@@ -114,15 +117,18 @@ const NewPostBox = () => {
         </div>
       </div>
       <div
-        style={{ textAlign: "center", padding: "80px", display: "none" }}
-        // style={{ display: postType === "others" ? "block" : "none" }}
+        style={{
+          display: postType === "others" ? "block" : "none",
+          textAlign: "center",
+          padding: "50px",
+        }}
       >
-        Coming Soon...
+        <h3>Coming Soon...</h3>
         <Button
           title="Close"
-          //   onClick={() => {
-          //     handleViewType(false);
-          //   }}
+          onClick={() => {
+            handleViewType(false);
+          }}
         >
           {/* Cross Icon */}
           <svg
