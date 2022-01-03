@@ -1,11 +1,4 @@
-import {
-  Button,
-  Table,
-  TableBody,
-  TableContainer,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 
@@ -14,7 +7,7 @@ const Navigation = () => {
     <>
       {/* Large Device */}
       <Box sx={{ position: "fixed", top: "100px", width: "20%" }}>
-        <TableContainer
+        <Box
           sx={{
             padding: "25px",
             backgroundColor: "white",
@@ -23,20 +16,20 @@ const Navigation = () => {
             display: { xs: "none", lg: "block" },
           }}
         >
-          <Table>
-            <TableBody>
-              <TableRow sx={{ display: "flex", alignItems: "center" }}>
+          <Box>
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-home"
+                  className="icon icon-tabler icon-tabler-home"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="#597e8d"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <polyline points="5 12 3 12 12 3 21 12 19 12" />
@@ -50,20 +43,20 @@ const Navigation = () => {
                 >
                   Home
                 </Typography>
-              </TableRow>
+              </Box>
               <hr style={{ border: "1px solid #eee" }} />
-              <TableRow sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-users"
+                  className="icon icon-tabler icon-tabler-users"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="#597e8d"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <circle cx="9" cy="7" r="4" />
@@ -78,20 +71,20 @@ const Navigation = () => {
                 >
                   People
                 </Typography>
-              </TableRow>
+              </Box>
               <hr style={{ border: "1px solid #eee" }} />
-              <TableRow sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-photo"
+                  className="icon icon-tabler icon-tabler-photo"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="#597e8d"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <line x1="15" y1="8" x2="15.01" y2="8" />
@@ -106,20 +99,20 @@ const Navigation = () => {
                 >
                   Photos
                 </Typography>
-              </TableRow>
+              </Box>
               <hr style={{ border: "1px solid #eee" }} />
-              <TableRow sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-user"
+                  className="icon icon-tabler icon-tabler-user"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="#597e8d"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <circle cx="12" cy="7" r="4" />
@@ -132,20 +125,20 @@ const Navigation = () => {
                 >
                   Profile
                 </Typography>
-              </TableRow>
+              </Box>
               <hr style={{ border: "1px solid #eee" }} />
-              <TableRow sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-settings"
+                  className="icon icon-tabler icon-tabler-settings"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="#597e8d"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
@@ -158,10 +151,10 @@ const Navigation = () => {
                 >
                   Settings
                 </Typography>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
 
       {/* Small Device */}
@@ -180,15 +173,15 @@ const Navigation = () => {
           <Button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-home"
+              className="icon icon-tabler icon-tabler-home"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="#597e8d"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <polyline points="5 12 3 12 12 3 21 12 19 12" />
@@ -199,15 +192,15 @@ const Navigation = () => {
           <Button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-users"
+              className="icon icon-tabler icon-tabler-users"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="#597e8d"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <circle cx="9" cy="7" r="4" />
@@ -219,15 +212,15 @@ const Navigation = () => {
           <Button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-photo"
+              className="icon icon-tabler icon-tabler-photo"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="#597e8d"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <line x1="15" y1="8" x2="15.01" y2="8" />
@@ -239,15 +232,15 @@ const Navigation = () => {
           <Button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-user"
+              className="icon icon-tabler icon-tabler-user"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="#597e8d"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <circle cx="12" cy="7" r="4" />
@@ -257,15 +250,15 @@ const Navigation = () => {
           <Button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-settings"
+              className="icon icon-tabler icon-tabler-settings"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="#597e8d"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />

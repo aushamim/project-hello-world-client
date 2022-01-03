@@ -30,15 +30,15 @@ const Header = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-chart-bubble"
+              className="icon icon-tabler icon-tabler-chart-bubble"
               width="36"
               height="36"
               viewBox="0 0 24 24"
-              stroke-width="2"
+              strokeWidth="2"
               stroke="#1877f2"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <circle cx="6" cy="16" r="3" />
