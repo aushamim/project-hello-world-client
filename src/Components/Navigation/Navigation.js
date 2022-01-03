@@ -8,8 +8,10 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import useAuth from "../Hooks/useAuth";
 
 const Navigation = () => {
+  const { logout } = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -328,7 +330,7 @@ const Navigation = () => {
             <MenuItem
               onClick={() => {
                 handleClose();
-                console.log("Logout Pressed");
+                logout();
               }}
             >
               <ListItemIcon>
