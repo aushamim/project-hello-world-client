@@ -56,8 +56,11 @@ const useFirebase = () => {
         const newUser = { email, displayName: name };
         setUser(newUser);
 
-        // // // save user to the database
-        // saveUser(email, name, "POST");
+        //default image for user
+        const photo = "https://files.catbox.moe/qzm8ip.png";
+
+        // // save user data to the database
+        saveUser(email, name, photo, "POST");
 
         // send name to firebase after create
         updateProfile(auth.currentUser, {
@@ -95,7 +98,7 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        // saveUser(user.email, user.displayName, "PUT");
+        saveUser(user.email, user.displayName, user.photoURL, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
         navigate(destination);
@@ -129,6 +132,19 @@ const useFirebase = () => {
         // An error happened.
       })
       .finally(() => setIsLoading(false));
+  };
+
+  // saved user data to DB function
+  const saveUser = (email, displayName, photoURL, method) => {
+    const user = { email, displayName, photoURL };
+
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then();
   };
 
   return {
