@@ -8,11 +8,8 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import useAuth from "../Hooks/useAuth";
 
 const Navigation = () => {
-  const { logout, user } = useAuth();
-  console.log(user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
