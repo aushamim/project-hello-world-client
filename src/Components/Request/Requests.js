@@ -15,10 +15,9 @@ const Requests = () => {
       sx={{
         marginLeft: { xs: "auto", lg: "0" },
         marginRight: { xs: "auto", lg: "0" },
-        width: { xs: "max-content", lg: "100%" },
+        width: { xs: "fit-content", lg: "100%" },
         position: "sticky",
         top: "20px",
-        zIndex: "-1",
       }}
     >
       <Box
@@ -30,7 +29,14 @@ const Requests = () => {
         <Typography>Requests</Typography>
         <Chip sx={{ marginRight: 2 }} label={requests.length} />
       </Box>
-      <Box sx={{ maxHeight: "300px", overflow: "scroll", overflowX: "hidden" }}>
+      <Box
+        sx={{
+          maxHeight: "300px",
+          overflow: "scroll",
+          overflowX: "hidden",
+          width: "fit-content",
+        }}
+      >
         {requests.map((request) => (
           <Request key={request.id} request={request}></Request>
         ))}

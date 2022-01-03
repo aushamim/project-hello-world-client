@@ -19,7 +19,6 @@ const Contacts = () => {
         width: { xs: "max-content", lg: "284px" },
         position: "sticky",
         top: "400px",
-        zIndex: "-1",
       }}
     >
       <Box

@@ -23,8 +23,16 @@ const Home = () => {
         }}
       >
         {/* Left Rail */}
-        <div style={{ position: "relative" }}>
-          <Navigation></Navigation>
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            justifyContent: "end",
+          }}
+        >
+          <div>
+            <Navigation></Navigation>
+          </div>
         </div>
         {/* Main Body */}
         <div
@@ -43,7 +51,6 @@ const Home = () => {
           style={{
             padding: "20px",
             position: "relative",
-            // height: "fit-content",
           }}
         >
           <Requests></Requests>
