@@ -9,7 +9,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AlertDialog from "./Dialog";
 const Post = ({ post }) => {
   const { userName, profile_img, Post, dateTime, image } = post;

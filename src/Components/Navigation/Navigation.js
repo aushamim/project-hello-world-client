@@ -6,7 +6,14 @@ const Navigation = () => {
   return (
     <>
       {/* Large Device */}
-      <Box sx={{ position: "fixed", top: "100px", width: "20%" }}>
+      <Box
+        sx={{
+          position: "sticky",
+          top: "0px",
+          width: "300px",
+          padding: "20px",
+        }}
+      >
         <Box
           sx={{
             padding: "25px",
@@ -159,7 +166,10 @@ const Navigation = () => {
 
       {/* Small Device */}
       <Box
-        sx={{ display: { xs: "flex", lg: "none" }, justifyContent: "center" }}
+        sx={{
+          display: { xs: "flex", lg: "none" },
+          justifyContent: "center",
+        }}
       >
         <Box
           sx={{

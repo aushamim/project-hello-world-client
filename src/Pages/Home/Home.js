@@ -19,11 +19,11 @@ const Home = () => {
           marginTop: "20px",
           marginBottom: "20px",
           gridTemplateColumns: "repeat(4,1fr)",
-          gridGap: "50px",
+          gridGap: "10px",
         }}
       >
         {/* Left Rail */}
-        <div style={{ padding: "20px" }}>
+        <div style={{ position: "relative" }}>
           <Navigation></Navigation>
         </div>
         {/* Main Body */}
@@ -42,6 +42,8 @@ const Home = () => {
         <div
           style={{
             padding: "20px",
+            position: "relative",
+            // height: "fit-content",
           }}
         >
           <Requests></Requests>
