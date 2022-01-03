@@ -44,6 +44,8 @@ const useFirebase = () => {
     setView(x);
   };
 
+  //date
+
   // declare auth
   const auth = getAuth();
 

@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import AuthProvider from "./Components/ContextApi/AuthProvider/AuthProvider";
 import User from "./Pages/User/User";
 import NotFound from "./Pages/NotFound/NotFound";
+import PrivateRoute from "./Pages/Login/PrivateRoute";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
             <Route path="/user" element={<User></User>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/admin" element={<Dashboard></Dashboard>}></Route>
-            <Route path="/" element={<Home></Home>}></Route>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Home></Home>
+                </PrivateRoute>
+              }
+            ></Route>
             <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
         </BrowserRouter>

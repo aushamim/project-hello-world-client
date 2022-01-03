@@ -11,8 +11,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 import { Logout } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const Header = () => {
+  const { logout } = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -175,7 +177,7 @@ const Header = () => {
             >
               <MenuItem
                 onClick={() => {
-                  console.log("Logout Pressed");
+                  logout();
                 }}
               >
                 <ListItemIcon>

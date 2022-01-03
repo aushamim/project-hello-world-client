@@ -1,46 +1,55 @@
 import { styled } from "@mui/material/styles";
 import { PhotoCamera } from "@mui/icons-material";
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
-import useAuth from "../Hooks/useAuth";
+import { useEffect, useState } from "react";
+
 import { Box } from "@mui/system";
+import useAuth from "../Hooks/useAuth";
+import axios from "axios";
 
 const NewPostBox = () => {
-  const { postType, view, handleViewType } = useAuth();
+  const { postType, view, handleViewType, user } = useAuth();
 
-  //   const { user } = useAuth();
-  //   const [singleUserID, setSingleUserID] = useState([]);
-  //   useEffect(() => {
-  //     fetch(`https://aqueous-springs-11487.herokuapp.com/users`)
-  //       .then((res) => res.json())
-  //       .then((data) => data.filter((x) => x.email === user.email))
-  //       .then((newData) => setSingleUserID(newData[0]._id));
-  //   }, [user.email]);
-
-  //   const handlePost = () => {
-  //     const postData = document.getElementById("postData").value;
-  //     const UID = { UID: singleUserID };
-  //     const finalPost = { post: postData };
-  //     const time = new Date().getTime();
-  //     const finalData = { ...UID, time, ...finalPost };
-
-  //     fetch("https://aqueous-springs-11487.herokuapp.com/posts", {
-  //       method: "POST",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(finalData),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data?.insertedId) {
-  //           document.location.reload();
-  //           document.getElementById("postData").value = "";
-  //         }
-  //       });
-  //   };
-
+  const [singleUserID, setSingleUserID] = useState([]);
+  const [postData, setPostData] = useState("");
   const [image, setImage] = useState(null);
+  const [imgCaption, setImgCaption] = useState("");
+  useEffect(() => {
+    fetch(`http://localhost:5000/users`)
+      .then((res) => res.json())
+      .then((data) => data.filter((x) => x.email === user.email))
+      .then((newData) => setSingleUserID(newData[0]._id));
+  }, [user.email]);
+
+  const handlePost = (e) => {
+    if (!image) {
+      setImage("");
+    }
+    if (!postData) {
+      setPostData("");
+    }
+    let UID = { UID: singleUserID };
+    let storeP = { postData: postData };
+    let postImg = { postImage: image };
+    const iCaption = { imgCaption: imgCaption };
+    const time = new Date().getTime();
+    const finalData = {
+      ...UID,
+      displayName: user?.displayName,
+      proImage: user?.photoURL,
+      ...storeP,
+      ...postImg,
+      ...iCaption,
+      time,
+    };
+
+    // console.log(finalData);
+
+    axios.post("http://localhost:5000/posts", finalData).then((res) => {
+      console.log(res.data);
+    });
+  };
+
   function encodeImageFileAsURL(target) {
     const file = target;
     const reader = new FileReader();
@@ -49,6 +58,7 @@ const NewPostBox = () => {
     };
     reader.readAsDataURL(file);
   }
+  console.log(image);
 
   const Input = styled("input")({
     display: "none",
@@ -72,7 +82,14 @@ const NewPostBox = () => {
           padding: "10px",
         }}
       >
-        <TextField id="postData" label="Post" multiline rows={4} fullWidth />
+        <TextField
+          id="postData"
+          label="Post"
+          multiline
+          rows={4}
+          fullWidth
+          onBlur={(e) => setPostData(e.target.value)}
+        />
 
         <div
           style={{ display: "flex", justifyContent: "end", marginTop: "10px" }}
@@ -128,7 +145,10 @@ const NewPostBox = () => {
             </svg>
           </Button>
           <Button
-          // onClick={handlePost}
+            onClick={() => {
+              handlePost();
+              document.getElementById("postData").value = "";
+            }}
           >
             Post
           </Button>
@@ -143,7 +163,14 @@ const NewPostBox = () => {
           padding: "10px",
         }}
       >
-        <TextField id="postDataImg" label="Post" multiline rows={4} fullWidth />
+        <TextField
+          id="postDataImg"
+          label="Post"
+          multiline
+          rows={4}
+          fullWidth
+          onBlur={(e) => setImgCaption(e.target.value)}
+        />
 
         {/* Preview */}
         {image ? (
@@ -230,7 +257,11 @@ const NewPostBox = () => {
           </label>
 
           <Button
-          // onClick={handlePost}
+            onClick={() => {
+              handlePost();
+              document.getElementById("postDataImg").value = "";
+              setImage("");
+            }}
           >
             Post
           </Button>

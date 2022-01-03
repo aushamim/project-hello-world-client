@@ -1,4 +1,11 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  LinearProgress,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Components/Hooks/useAuth";
@@ -32,6 +39,7 @@ const Login = () => {
   const newSwitch = () => {
     setIsNew();
   };
+
   return (
     <Box
       sx={{
@@ -83,6 +91,15 @@ const Login = () => {
               autoComplete="off"
               sx={{ width: { xs: "100%", lg: "70%" } }}
             />
+
+            {isLoading && (
+              <LinearProgress sx={{ width: { xs: "100%", lg: "70%" } }} />
+            )}
+            {authError && (
+              <Alert severity="error" sx={{ width: "66.5%" }}>
+                {authError}
+              </Alert>
+            )}
 
             <Box
               sx={{
@@ -157,6 +174,14 @@ const Login = () => {
               sx={{ width: { xs: "100%", lg: "70%" } }}
             />
 
+            {isLoading && (
+              <LinearProgress sx={{ width: { xs: "100%", lg: "70%" } }} />
+            )}
+            {authError && (
+              <Alert severity="error" sx={{ width: "66.5%" }}>
+                {authError}
+              </Alert>
+            )}
             <Box
               sx={{
                 display: {

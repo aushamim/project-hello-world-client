@@ -9,8 +9,10 @@ import {
 import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const Navigation = () => {
+  const { logout } = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -225,7 +227,6 @@ const Navigation = () => {
             bottom: "10px",
             borderRadius: "15px",
             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-            zIndex: 1,
           }}
         >
           <Button>
@@ -359,7 +360,7 @@ const Navigation = () => {
             <MenuItem
               onClick={() => {
                 handleClose();
-                console.log("Logout Pressed");
+                logout();
               }}
             >
               <ListItemIcon>
