@@ -1,8 +1,24 @@
-import { Button, Typography } from "@mui/material";
+import { Logout } from "@mui/icons-material";
+import {
+  Button,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 
 const Navigation = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
       {/* Large Device */}
@@ -178,6 +194,7 @@ const Navigation = () => {
             position: "fixed",
             bottom: "10px",
             borderRadius: "15px",
+            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
           }}
         >
           <Button>
@@ -257,7 +274,7 @@ const Navigation = () => {
               <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
             </svg>
           </Button>
-          <Button>
+          <Button onClick={handleClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-settings"
@@ -275,6 +292,51 @@ const Navigation = () => {
               <circle cx="12" cy="12" r="3" />
             </svg>
           </Button>
+
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            PaperProps={{
+              elevation: 0,
+              sx: {
+                top: "0",
+                overflow: "visible",
+                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                mt: "-60px",
+                "&:before": {
+                  content: '""',
+                  display: "block",
+                  position: "absolute",
+                  bottom: 0,
+                  right: 28,
+                  width: 10,
+                  height: 10,
+                  bgcolor: "background.paper",
+                  transform: "translateY(50%) rotate(45deg)",
+                  zIndex: 0,
+                },
+              },
+            }}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
+            }}
+            transformOrigin={{ horizontal: "right", vertical: "top" }}
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          >
+            <MenuItem
+              onClick={() => {
+                handleClose();
+                console.log("Logout Pressed");
+              }}
+            >
+              <ListItemIcon>
+                <Logout fontSize="small" />
+              </ListItemIcon>
+              Logout
+            </MenuItem>
+          </Menu>
         </Box>
       </Box>
     </>
