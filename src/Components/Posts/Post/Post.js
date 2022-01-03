@@ -10,6 +10,7 @@ import {
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AlertDialog from "./Dialog";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 const Post = ({ post }) => {
   const { userName, profile_img, Post, dateTime, image } = post;
   const [open, setOpen] = useState(false);
@@ -38,13 +39,15 @@ const Post = ({ post }) => {
             marginBottom: "10px",
           }}
         >
-          <Box>
-            <img
-              src={profile_img}
-              alt={userName}
-              style={{ width: "50px", height: "50px", borderRadius: "50px" }}
-            />
-          </Box>
+          <Link to="/user">
+            <Box>
+              <img
+                src={profile_img}
+                alt={userName}
+                style={{ width: "50px", height: "50px", borderRadius: "50px" }}
+              />
+            </Box>
+          </Link>
           <Box
             sx={{
               gridColumn: { xs: "span 3", lg: "span 5" },

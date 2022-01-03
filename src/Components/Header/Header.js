@@ -10,6 +10,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 import { Logout } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -42,27 +43,33 @@ const Header = () => {
             justifyContent: { xs: "center" },
           }}
         >
-          <Box
-            sx={{ background: "#eff4fc", padding: "5px", borderRadius: "15px" }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-chart-bubble"
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="#1877f2"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          <Link to="/">
+            <Box
+              sx={{
+                background: "#eff4fc",
+                padding: "5px",
+                borderRadius: "15px",
+              }}
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <circle cx="6" cy="16" r="3" />
-              <circle cx="16" cy="19" r="2" />
-              <circle cx="14.5" cy="7.5" r="4.5" />
-            </svg>
-          </Box>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-chart-bubble"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#1877f2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="6" cy="16" r="3" />
+                <circle cx="16" cy="19" r="2" />
+                <circle cx="14.5" cy="7.5" r="4.5" />
+              </svg>
+            </Box>
+          </Link>
           <Typography
             variant="h6"
             sx={{
