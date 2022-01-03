@@ -5,11 +5,11 @@ import { Box } from "@mui/material";
 
 const Posts = () => {
   const [userPosts, setUserPost] = useState([]);
-  const [isLoading, SetIsLoading] = useState(false);
   useEffect(() => {
-    fetch("./fakeData.json")
+    fetch("http://localhost:5000/posts")
       .then((res) => res.json())
-      .then((data) => setUserPost(data));
+      .then((data) => data.sort((a, b) => b.time - a.time))
+      .then((sortedData) => setUserPost(sortedData));
   }, []);
   return (
     <Box

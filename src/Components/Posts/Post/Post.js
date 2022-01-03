@@ -11,10 +11,24 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AlertDialog from "./Dialog";
 import { Box } from "@mui/system";
 const Post = ({ post }) => {
-  const { userName, profile_img, Post, dateTime, image } = post;
+  const { displayName, proImage, postData, time, postImage, imgCaption } = post;
   const [open, setOpen] = useState(false);
   const handlePost = () => {
     setOpen(true);
+  };
+
+  // convert date
+  const handleDate = (time) => {
+    const date = new Date(time);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${
+      hours > 12 ? hours - 12 : hours
+    }:${minutes}${ampm} ${day}/${month}/${year}`;
   };
 
   return (
@@ -40,8 +54,8 @@ const Post = ({ post }) => {
         >
           <Box>
             <img
-              src={profile_img}
-              alt={userName}
+              src={proImage}
+              alt={displayName}
               style={{ width: "50px", height: "50px", borderRadius: "50px" }}
             />
           </Box>
@@ -51,8 +65,8 @@ const Post = ({ post }) => {
               paddingLeft: { xs: "10px", lg: "0" },
             }}
           >
-            <Typography>{userName}</Typography>
-            <Typography variant="caption">{dateTime}</Typography>
+            <Typography>{displayName}</Typography>
+            <Typography variant="caption"> {handleDate(time)}</Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "end" }}>
             <IconButton onClick={handlePost} aria-label="settings">
@@ -64,16 +78,16 @@ const Post = ({ post }) => {
         {open && <AlertDialog open={open} setOpen={setOpen}></AlertDialog>}
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            {Post}
+            {imgCaption ? imgCaption : postData}
           </Typography>
         </CardContent>
-        {image && (
+        {postImage && (
           <CardMedia
             style={{ borderRadius: "10px" }}
             component="img"
             // height="194px"
             width="100%"
-            image={image}
+            image={postImage}
             alt="Paella dish"
           />
         )}
