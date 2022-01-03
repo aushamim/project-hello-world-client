@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -30,6 +31,34 @@ const Navigation = () => {
           padding: "20px",
         }}
       >
+        {/* User */}
+        <Box
+          sx={{
+            background: "white",
+            boxShadow: "1px 1px 5px #ccc",
+            borderRadius: "15px",
+            display: { xs: "none", lg: "grid" },
+            padding: "20px",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            marginBottom: "20px",
+            alignItems: "center",
+            justifyItems: "center",
+          }}
+        >
+          <Box sx={{ width: "80px", marginRight: "10px" }}>
+            <Link to="/user">
+              <img
+                src="https://hello-p.netlify.app/static/media/venti.bca7c018ca19eab4b1df.png"
+                alt="Kakku"
+                style={{ width: "100%", borderRadius: "15px" }}
+              />
+            </Link>
+          </Box>
+          <Box sx={{ gridColumn: "span 3" }}>
+            <Typography variant="h5">Nahid Kakku</Typography>
+          </Box>
+        </Box>
+
         <Box
           sx={{
             padding: "25px",
@@ -39,6 +68,7 @@ const Navigation = () => {
             display: { xs: "none", lg: "block" },
           }}
         >
+          {/* Navigation */}
           <Box>
             <Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
