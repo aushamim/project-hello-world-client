@@ -7,7 +7,7 @@ const PrivateRoute = ({ children, ...rest }) => {
   let location = useLocation();
 
   if (isLoading) {
-    return <h1>Some loading pic wilbe here</h1>;
+    return <h1>Some loading pic wil be here</h1>;
   }
   if (user.email) {
     return children;
