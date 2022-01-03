@@ -13,11 +13,12 @@ const Requests = () => {
   return (
     <Box
       sx={{
-        marginLeft: { xs: "auto", lg: "100px" },
-        marginRight: { xs: "auto", lg: "10px" },
-        width: { xs: "max-content", lg: "150" },
+        marginLeft: { xs: "auto", lg: "0" },
+        marginRight: { xs: "auto", lg: "0" },
+        width: { xs: "max-content", lg: "100%" },
         position: "sticky",
         top: "20px",
+        zIndex: "-1",
       }}
     >
       <Box

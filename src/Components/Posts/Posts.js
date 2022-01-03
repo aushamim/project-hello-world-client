@@ -13,11 +13,13 @@ const Posts = () => {
   }, []);
   return (
     <Box
-      sx={{
-        marginLeft: { xs: "auto", lg: "50px" },
-        marginRight: { xs: "auto", lg: "50px" },
-        width: { xs: "max-content", lg: "300px" },
-      }}
+      sx={
+        {
+          // marginLeft: { xs: "auto", lg: "50px" },
+          // marginRight: { xs: "auto", lg: "50px" },
+          // width: { xs: "max-content", lg: "300px" },
+        }
+      }
     >
       {userPosts.map((post) => (
         <Post post={post} key={post.id}></Post>

@@ -14,11 +14,12 @@ const Contacts = () => {
     <Box
       sx={{
         marginTop: "20px",
-        marginLeft: { xs: "auto", lg: "100px" },
-        marginRight: { xs: "auto", lg: "10px" },
+        marginLeft: { xs: "auto", lg: "0" },
+        marginRight: { xs: "auto", lg: "0" },
         width: { xs: "max-content", lg: "284px" },
         position: "sticky",
         top: "400px",
+        zIndex: "-1",
       }}
     >
       <Box
