@@ -3,7 +3,12 @@ import React from "react";
 import useAuth from "../Hooks/useAuth";
 
 const NewPost = () => {
-  const { handlePostTypeText, handlePostType, handleViewType } = useAuth();
+  const {
+    handlePostTypeText,
+    handlePostTypeImage,
+    handlePostType,
+    handleViewType,
+  } = useAuth();
   return (
     <div
       style={{
@@ -51,7 +56,7 @@ const NewPost = () => {
 
         <Button
           onClick={() => {
-            handlePostType();
+            handlePostTypeImage();
             handleViewType(true);
           }}
         >

@@ -32,6 +32,9 @@ const useFirebase = () => {
   const handlePostTypeText = () => {
     setPostType("text");
   };
+  const handlePostTypeImage = () => {
+    setPostType("image");
+  };
   const handlePostType = () => {
     setPostType("others");
   };
@@ -159,6 +162,7 @@ const useFirebase = () => {
     view,
     handleViewType,
     handlePostTypeText,
+    handlePostTypeImage,
     handlePostType,
   };
 };

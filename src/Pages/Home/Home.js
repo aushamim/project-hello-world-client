@@ -23,17 +23,17 @@ const Home = () => {
         }}
       >
         {/* Left Rail */}
-        <div
-          style={{
+        <Box
+          sx={{
             position: "relative",
-            display: "flex",
+            display: { xs: "block", lg: "flex" },
             justifyContent: "end",
           }}
         >
           <div>
             <Navigation></Navigation>
           </div>
-        </div>
+        </Box>
         {/* Main Body */}
         <div
           style={{
