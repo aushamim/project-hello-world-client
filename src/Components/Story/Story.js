@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import "./Story.css";
 import defaultStory from "./Media/default.jpg";
+import { styled } from "@mui/material/styles";
 
 const Story = () => {
   const stories = [
@@ -107,33 +108,38 @@ const Story = () => {
     },
   ];
 
-  window.onload = function () {
-    const slider = document.querySelector(".storyContainer");
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-    slider.addEventListener("mousedown", (e) => {
-      isDown = true;
-      slider.classList.add("active");
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener("mouseleave", () => {
-      isDown = false;
-      slider.classList.remove("active");
-    });
-    slider.addEventListener("mouseup", () => {
-      isDown = false;
-      slider.classList.remove("active");
-    });
-    slider.addEventListener("mousemove", (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2;
-      slider.scrollLeft = scrollLeft - walk;
-    });
-  };
+  // window.onload = function () {
+  //   const slider = document.querySelector(".storyContainer");
+  //   let isDown = false;
+  //   let startX;
+  //   let scrollLeft;
+  //   slider.addEventListener("mousedown", (e) => {
+  //     isDown = true;
+  //     slider.classList.add("active");
+  //     startX = e.pageX - slider.offsetLeft;
+  //     scrollLeft = slider.scrollLeft;
+  //   });
+  //   slider.addEventListener("mouseleave", () => {
+  //     isDown = false;
+  //     slider.classList.remove("active");
+  //   });
+  //   slider.addEventListener("mouseup", () => {
+  //     isDown = false;
+  //     slider.classList.remove("active");
+  //   });
+  //   slider.addEventListener("mousemove", (e) => {
+  //     if (!isDown) return;
+  //     e.preventDefault();
+  //     const x = e.pageX - slider.offsetLeft;
+  //     const walk = (x - startX) * 2;
+  //     slider.scrollLeft = scrollLeft - walk;
+  //     console.log(walk);
+  //   });
+  // };
+
+  const Input = styled("input")({
+    display: "none",
+  });
 
   return (
     <Box
@@ -141,7 +147,7 @@ const Story = () => {
       sx={{
         padding: "15px",
         display: "flex",
-        overflow: "scroll",
+        overflowX: "scroll",
         cursor: "grab",
       }}
     >
@@ -186,6 +192,7 @@ const Story = () => {
           </svg>
         </div>
       </Box>
+
       {/* Users */}
       {stories.map((story) => (
         <div style={{ position: "relative" }}>

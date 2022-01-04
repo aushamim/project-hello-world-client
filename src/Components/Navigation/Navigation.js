@@ -102,7 +102,7 @@ const Navigation = () => {
                 </Box>
               </Link>
               <hr style={{ border: "1px solid #eee" }} />
-              <Link to="/people" style={{ textDecoration: "none" }}>
+              <Link to="/coming" style={{ textDecoration: "none" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ const Navigation = () => {
                 </Box>
               </Link>
               <hr style={{ border: "1px solid #eee" }} />
-              <Link to="/photos" style={{ textDecoration: "none" }}>
+              <Link to="/coming" style={{ textDecoration: "none" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +190,7 @@ const Navigation = () => {
                 </Box>
               </Link>
               <hr style={{ border: "1px solid #eee" }} />
-              <Link to="/setting" style={{ textDecoration: "none" }}>
+              <Link to="/coming" style={{ textDecoration: "none" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -239,83 +239,91 @@ const Navigation = () => {
             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
           }}
         >
-          <Button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-home"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="#597e8d"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <polyline points="5 12 3 12 12 3 21 12 19 12" />
-              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-            </svg>
-          </Button>
-          <Button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-users"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="#597e8d"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-            </svg>
-          </Button>
-          <Button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-photo"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="#597e8d"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <line x1="15" y1="8" x2="15.01" y2="8" />
-              <rect x="4" y="4" width="16" height="16" rx="3" />
-              <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5" />
-              <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2" />
-            </svg>
-          </Button>
-          <Button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-user"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="#597e8d"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <circle cx="12" cy="7" r="4" />
-              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-            </svg>
-          </Button>
+          <Link to="/">
+            <Button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-home"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#597e8d"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+              </svg>
+            </Button>
+          </Link>
+          <Link to="/coming">
+            <Button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-users"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#597e8d"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+              </svg>
+            </Button>
+          </Link>
+          <Link to="/coming">
+            <Button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-photo"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#597e8d"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="15" y1="8" x2="15.01" y2="8" />
+                <rect x="4" y="4" width="16" height="16" rx="3" />
+                <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5" />
+                <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2" />
+              </svg>
+            </Button>
+          </Link>
+          <Link to="/user">
+            <Button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-user"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#597e8d"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </Button>
+          </Link>
           <Button onClick={handleClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

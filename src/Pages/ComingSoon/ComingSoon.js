@@ -1,12 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NotFound = () => {
+const ComingSoon = () => {
   return (
     <Box sx={{ height: "50vh" }}>
       <lottie-player
-        src="https://assets10.lottiefiles.com/packages/lf20_aaesnvcw.json"
+        src="https://assets10.lottiefiles.com/packages/lf20_m6cuL6.json"
         background="transparent"
         speed="1"
         style={{ width: "100%", height: "100%" }}
@@ -23,4 +24,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default ComingSoon;

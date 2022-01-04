@@ -7,6 +7,7 @@ import AuthProvider from "./Components/ContextApi/AuthProvider/AuthProvider";
 import User from "./Pages/User/User";
 import NotFound from "./Pages/NotFound/NotFound";
 import PrivateRoute from "./Pages/Login/PrivateRoute";
+import ComingSoon from "./Pages/ComingSoon/ComingSoon";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/coming" element={<ComingSoon></ComingSoon>}></Route>
             <Route path="/user" element={<User></User>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/admin" element={<Dashboard></Dashboard>}></Route>
