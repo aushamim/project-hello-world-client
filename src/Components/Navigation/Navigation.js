@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 
 const Navigation = () => {
-  const { logout } = useAuth();
+  const { logout, singleUser } = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -50,14 +50,14 @@ const Navigation = () => {
           <Box sx={{ width: "80px", marginRight: "10px" }}>
             <Link to="/user">
               <img
-                src="https://hello-p.netlify.app/static/media/venti.bca7c018ca19eab4b1df.png"
+                src={singleUser?.photoURL}
                 alt="Kakku"
                 style={{ width: "100%", borderRadius: "15px" }}
               />
             </Link>
           </Box>
           <Box sx={{ gridColumn: "span 3" }}>
-            <Typography variant="h5">Nahid Kakku</Typography>
+            <Typography variant="h5">{singleUser?.displayName}</Typography>
           </Box>
         </Box>
 

@@ -28,6 +28,8 @@ const useFirebase = () => {
   // error state
   const [authError, setAuthError] = useState("");
 
+  const [singleUser, setSingleUser] = useState({});
+
   // Post Type
   const handlePostTypeText = () => {
     setPostType("text");
@@ -166,6 +168,8 @@ const useFirebase = () => {
     handlePostTypeText,
     handlePostTypeImage,
     handlePostType,
+    setSingleUser,
+    singleUser,
   };
 };
 

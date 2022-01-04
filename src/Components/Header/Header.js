@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 
 const Header = () => {
-  const { logout } = useAuth();
+  const { logout, singleUser } = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -135,7 +135,7 @@ const Header = () => {
           </Button>
           <Box>
             <img
-              src="https://hello-p.netlify.app/static/media/venti.bca7c018ca19eab4b1df.png"
+              src={singleUser?.photoURL}
               alt=""
               style={{ borderRadius: "15px", width: "45px", cursor: "pointer" }}
               onClick={handleClick}

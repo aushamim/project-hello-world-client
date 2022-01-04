@@ -1,24 +1,26 @@
 import { styled } from "@mui/material/styles";
 import { PhotoCamera } from "@mui/icons-material";
-import { Button, TextField } from "@mui/material";
+import { Alert, Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import useAuth from "../Hooks/useAuth";
 import axios from "axios";
 
 const NewPostBox = () => {
-  const { postType, view, handleViewType, user } = useAuth();
+  const { postType, view, handleViewType, user, singleUser, setSingleUser } =
+    useAuth();
 
-  const [singleUserID, setSingleUserID] = useState([]);
   const [postData, setPostData] = useState("");
   const [image, setImage] = useState(null);
+  // const [singleUser, setSingleUser] = useState([]);
   const [imgCaption, setImgCaption] = useState("");
+  const [error, setError] = useState("");
   useEffect(() => {
     fetch(`http://localhost:5000/users`)
       .then((res) => res.json())
       .then((data) => data.filter((x) => x.email === user.email))
-      .then((newData) => setSingleUserID(newData[0]._id));
-  }, [user.email]);
+      .then((newData) => setSingleUser(newData[0]));
+  }, [user.email, setSingleUser]);
 
   const handlePost = (e) => {
     if (!image) {
@@ -28,7 +30,7 @@ const NewPostBox = () => {
     if (!postData) {
       setPostData("");
     }
-    let UID = { UID: singleUserID };
+    let UID = { UID: singleUser._id };
     let storeP = { postData: postData };
     let postImg = { postImage: image };
     const iCaption = { imgCaption: imgCaption };
@@ -36,7 +38,7 @@ const NewPostBox = () => {
     const finalData = {
       ...UID,
       displayName: user?.displayName,
-      proImage: user?.photoURL,
+      proImage: singleUser?.photoURL,
       ...storeP,
       ...postImg,
       ...iCaption,
@@ -44,10 +46,19 @@ const NewPostBox = () => {
     };
     console.log(finalData);
 
-    axios.post("http://localhost:5000/posts", finalData).then((res) => {
-      console.log(res.data);
-      // document.location.reload();
-    });
+    axios
+      .post("http://localhost:5000/posts", finalData)
+      .then((res) => {
+        if (res.data?.insertedId) {
+          document.location.reload();
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        if (error.message === "Request failed with status code 413") {
+          setError("Maximum File Size 100KB");
+        }
+      });
   };
 
   function encodeImageFileAsURL(target) {
@@ -171,6 +182,8 @@ const NewPostBox = () => {
           onBlur={(e) => setImgCaption(e.target.value)}
         />
 
+        {error && <Alert severity="warning">{error}</Alert>}
+
         {/* Preview */}
         {image ? (
           <Box
@@ -214,6 +227,7 @@ const NewPostBox = () => {
             onClick={() => {
               document.getElementById("postDataImg").value = "";
               setImage("");
+              setError("");
             }}
           >
             {/* Trash Icon */}
