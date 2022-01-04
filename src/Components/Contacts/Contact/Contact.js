@@ -6,9 +6,10 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Link } from "react-router-dom";
 
 const Contact = ({ contact, total }) => {
-  const { photoURL, displayName } = contact;
+  const { photoURL, displayName, _id } = contact;
   const handleContact = () => {
     console.log("hello user");
   };
@@ -21,7 +22,9 @@ const Contact = ({ contact, total }) => {
       alignItems="flex-start"
     >
       <ListItemAvatar>
-        <Avatar alt="Remy Sharp" src={photoURL} />
+        <Link to={`/user/${_id}`}>
+          <Avatar alt="Remy Sharp" src={photoURL} />
+        </Link>
       </ListItemAvatar>
       <Typography>{displayName}</Typography>
       <IconButton
@@ -30,9 +33,7 @@ const Contact = ({ contact, total }) => {
         }}
         onClick={handleContact}
         aria-label="settings"
-      >
-        <MoreHorizIcon />
-      </IconButton>
+      ></IconButton>
     </ListItem>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Posts.css";
 import Post from "./Post/Post";
 import { Box } from "@mui/material";
+import loadingImg from "../Media/loadingImg/loading.gif";
 
 const Posts = () => {
   const [userPosts, setUserPost] = useState([]);
@@ -13,9 +14,17 @@ const Posts = () => {
   }, []);
   return (
     <Box>
-      {userPosts.map((post) => (
-        <Post post={post} key={post._id}></Post>
-      ))}
+      {userPosts.length === 0 ? (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img src={loadingImg} alt="" />
+        </div>
+      ) : (
+        <>
+          {userPosts.map((post) => (
+            <Post post={post} key={post._id}></Post>
+          ))}
+        </>
+      )}
     </Box>
   );
 };

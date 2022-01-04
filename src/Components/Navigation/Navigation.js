@@ -51,7 +51,7 @@ const Navigation = () => {
             <Link to={`/user/${singleUser._id}`}>
               <img
                 src={singleUser?.photoURL}
-                alt="Kakku"
+                alt=""
                 style={{ width: "100%", borderRadius: "15px" }}
               />
             </Link>
@@ -308,7 +308,10 @@ const Navigation = () => {
               </svg>
             </Button>
           </Link>
-          <Link to={`/user/${singleUser._id}`}>
+          <Link
+            to={`/user/${singleUser._id}`}
+            style={{ textDecoration: "none" }}
+          >
             <Button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

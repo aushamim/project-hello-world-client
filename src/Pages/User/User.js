@@ -6,6 +6,7 @@ import Header from "../../Components/Header/Header";
 import Navigation from "../../Components/Navigation/Navigation";
 import Requests from "../../Components/Request/Requests";
 import { useParams } from "react-router-dom";
+import loadingImg from "../../Components/Media/loadingImg/loading.gif";
 
 import useAuth from "../../Components/Hooks/useAuth.js";
 
@@ -140,7 +141,7 @@ const User = () => {
                 <Box sx={{ display: "flex", justifyContent: "end" }}>
                   <img
                     src={singleUser?.photoURL}
-                    alt="Kakku"
+                    alt="name"
                     style={{
                       width: "100px",
                       height: "100px",
@@ -152,6 +153,116 @@ const User = () => {
             </Box>
 
             {/* Repeat Start */}
+
+            {userPostData.length === 0 ? (
+              <>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <img src={loadingImg} alt="" />
+                </div>
+              </>
+            ) : (
+              <>
+                {userPostData.map((postData) => (
+                  <Box sx={{ marginBottom: "50px" }} key={postData._id}>
+                    <Box
+                      sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                          xs: "repeat(5,1fr)",
+                          lg: "repeat(7,1fr)",
+                        },
+                        padding: "10px",
+                        marginBottom: "5px",
+                        background: "white",
+                        borderRadius: "15px",
+                      }}
+                    >
+                      <Box>
+                        <img
+                          src={postData?.proImage}
+                          alt="Kakku"
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            borderRadius: "50px",
+                          }}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          gridColumn: { xs: "span 3", lg: "span 5" },
+                          paddingLeft: { xs: "10px", lg: "0" },
+                        }}
+                      >
+                        <Typography>{postData?.displayName}</Typography>
+                        <Typography variant="caption">
+                          {handleDate(postData?.time)}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: "flex", justifyContent: "end" }}>
+                        {user.email === singleUser.email ? (
+                          <IconButton
+                            onClick={() => {
+                              handleDelete(postData?._id);
+                            }}
+                            aria-label="settings"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="icon icon-tabler icon-tabler-trash"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="#ff2825"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path
+                                stroke="none"
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg>
+                          </IconButton>
+                        ) : (
+                          ""
+                        )}
+                      </Box>
+                    </Box>
+
+                    <Box
+                      sx={{
+                        background: "white",
+                        padding: "20px",
+                        borderRadius: "15px",
+                      }}
+                    >
+                      <Typography variant="body2">
+                        {postData?.imgCaption
+                          ? postData?.imgCaption
+                          : postData?.postData}
+                      </Typography>
+                      <img
+                        src={postData?.postImage}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          marginTop: "20px",
+                          borderRadius: "10px",
+                        }}
+                      />
+                    </Box>
+                  </Box>
+                ))}
+              </>
+            )}
             {userPostData.map((postData) => (
               <Box sx={{ marginBottom: "50px" }} key={postData._id}>
                 <Box
@@ -257,7 +368,6 @@ const User = () => {
               position: "relative",
             }}
           >
-            <Requests></Requests>
             <Contacts></Contacts>
           </div>
         </Box>
