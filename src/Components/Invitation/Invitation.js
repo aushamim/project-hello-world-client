@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Typography, typographyClasses} from '@mui/material';
+import {Box, Typography, } from '@mui/material';
 const Invitation = () => {
     return (
        <Box sx={{
@@ -8,9 +8,19 @@ const Invitation = () => {
            borderRadius:5,
            marginTop:5,
            }}>
-            <Typography>
-                hello world , i am invitation
-            </Typography>
+           <Box
+           sx={{
+              height:'200px',
+              border:'2px solid green',
+              backgroundImage:"url('https://i.ibb.co/XkDvzjT/Darjeeling-Gangtok-Tour-Package-Small.jpg')",
+              backgroundPosition:'cover',
+              backgroundRepeat:'no-repeat'
+           }}
+           >
+               <Typography>
+                   its world
+               </Typography>
+           </Box>
        </Box>
     );
 };
