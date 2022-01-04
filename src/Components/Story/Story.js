@@ -24,7 +24,7 @@ const Story = () => {
     formData.append("image", stories);
     formData.append("proImage", singleUser.photoURL);
 
-    fetch("https://enigmatic-reef-50171.herokuapp.com/stories", {
+    fetch("http://localhost:5000/stories", {
       method: "POST",
       body: formData,
     })

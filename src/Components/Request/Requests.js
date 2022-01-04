@@ -18,7 +18,7 @@ const Requests = () => {
         marginRight: { xs: "auto", lg: "0" },
         width: { xs: "fit-content", lg: "100%" },
         position: "sticky",
-        top: "20px",
+        top: "80px",
       }}
     >
       {requests.length === 0 ? (
