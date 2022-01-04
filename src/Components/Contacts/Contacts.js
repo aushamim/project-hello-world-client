@@ -4,9 +4,9 @@ import Contact from "./Contact/Contact";
 import List from "@mui/material/List";
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+
   useState(() => {
-    fetch("./fakeData.json")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => setContacts(data));
   }, []);
@@ -42,7 +42,7 @@ const Contacts = () => {
       >
         {contacts.map((contact) => (
           <Contact
-            key={contact.id}
+            key={contact._id}
             total={contacts.length}
             contact={contact}
           ></Contact>
