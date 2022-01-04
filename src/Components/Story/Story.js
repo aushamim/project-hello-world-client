@@ -1,11 +1,11 @@
-import { Box } from "@mui/material";
-import React from "react";
+import { Box, Button } from "@mui/material";
+import React, { useState } from "react";
 import "./Story.css";
 import defaultStory from "./Media/default.jpg";
 import { styled } from "@mui/material/styles";
 
 const Story = () => {
-  const stories = [
+  const storiesLink = [
     {
       avatar:
         "https://hello-p.netlify.app/static/media/venti.bca7c018ca19eab4b1df.png",
@@ -108,34 +108,8 @@ const Story = () => {
     },
   ];
 
-  // window.onload = function () {
-  //   const slider = document.querySelector(".storyContainer");
-  //   let isDown = false;
-  //   let startX;
-  //   let scrollLeft;
-  //   slider.addEventListener("mousedown", (e) => {
-  //     isDown = true;
-  //     slider.classList.add("active");
-  //     startX = e.pageX - slider.offsetLeft;
-  //     scrollLeft = slider.scrollLeft;
-  //   });
-  //   slider.addEventListener("mouseleave", () => {
-  //     isDown = false;
-  //     slider.classList.remove("active");
-  //   });
-  //   slider.addEventListener("mouseup", () => {
-  //     isDown = false;
-  //     slider.classList.remove("active");
-  //   });
-  //   slider.addEventListener("mousemove", (e) => {
-  //     if (!isDown) return;
-  //     e.preventDefault();
-  //     const x = e.pageX - slider.offsetLeft;
-  //     const walk = (x - startX) * 2;
-  //     slider.scrollLeft = scrollLeft - walk;
-  //     console.log(walk);
-  //   });
-  // };
+  const [stories, setStories] = useState({});
+  console.log(stories);
 
   const Input = styled("input")({
     display: "none",
@@ -170,31 +144,47 @@ const Story = () => {
             width: "fit-content",
             position: "absolute",
             top: "72px",
-            left: "27px",
+            left: "20px",
           }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-square-plus"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="#ffffff"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <rect x="4" y="4" width="16" height="16" rx="2" />
-            <line x1="9" y1="12" x2="15" y2="12" />
-            <line x1="12" y1="9" x2="12" y2="15" />
-          </svg>
+          <label htmlFor="image-in-story">
+            <Input
+              accept="image/*"
+              id="image-in-story"
+              type="file"
+              onChange={(e) => {
+                setStories(e.target.files[0]);
+              }}
+            />
+            <Button
+              color="primary"
+              aria-label="upload picture"
+              component="span"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-square-plus"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#ffffff"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <line x1="9" y1="12" x2="15" y2="12" />
+                <line x1="12" y1="9" x2="12" y2="15" />
+              </svg>
+            </Button>
+          </label>
         </div>
       </Box>
 
       {/* Users */}
-      {stories.map((story) => (
+      {storiesLink.map((story) => (
         <div style={{ position: "relative" }}>
           <img
             src={story.link}

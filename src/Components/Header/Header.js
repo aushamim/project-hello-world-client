@@ -36,6 +36,9 @@ const Header = () => {
           gridTemplateColumns: { lg: "repeat(3,1fr)" },
           gridGap: 5,
           boxShadow: "1px 1px 5px #ccc",
+          position: "sticky",
+          top: "0",
+          zIndex: "1",
         }}
       >
         <Box

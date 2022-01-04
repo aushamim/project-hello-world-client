@@ -14,7 +14,9 @@ const ComingSoon = () => {
         loop
         autoplay
       ></lottie-player>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", marginTop: "100px" }}
+      >
         <Typography variant="h5">Go to </Typography>
         <Link style={{ textDecoration: "none", marginLeft: "5px" }} to="/">
           <Typography variant="h5">Home</Typography>

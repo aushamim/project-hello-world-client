@@ -96,7 +96,10 @@ const Login = () => {
               <LinearProgress sx={{ width: { xs: "100%", lg: "70%" } }} />
             )}
             {authError && (
-              <Alert severity="error" sx={{ width: "66.5%" }}>
+              <Alert
+                severity="error"
+                sx={{ width: { xs: "95%", lg: "66.5%" } }}
+              >
                 {authError}
               </Alert>
             )}
@@ -178,7 +181,10 @@ const Login = () => {
               <LinearProgress sx={{ width: { xs: "100%", lg: "70%" } }} />
             )}
             {authError && (
-              <Alert severity="error" sx={{ width: "66.5%" }}>
+              <Alert
+                severity="error"
+                sx={{ width: { xs: "95%", lg: "66.5%" } }}
+              >
                 {authError}
               </Alert>
             )}
