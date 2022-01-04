@@ -48,7 +48,7 @@ const Navigation = () => {
           }}
         >
           <Box sx={{ width: "80px", marginRight: "10px" }}>
-            <Link to={`/user/${singleUser._id}`}>
+            <Link to={`/user/${singleUser?._id}`}>
               <img
                 src={singleUser?.photoURL}
                 alt=""
