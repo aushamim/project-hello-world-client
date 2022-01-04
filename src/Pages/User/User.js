@@ -7,8 +7,11 @@ import Navigation from "../../Components/Navigation/Navigation";
 import Requests from "../../Components/Request/Requests";
 import { useParams } from "react-router-dom";
 
+import useAuth from "../../Components/Hooks/useAuth.js";
+
 const User = () => {
   let { id } = useParams();
+  const { user } = useAuth();
 
   // load a single user
   const [singleUser, setSingleUser] = useState({});
@@ -39,6 +42,23 @@ const User = () => {
     return `${
       hours > 12 ? hours - 12 : hours
     }:${minutes}${ampm} ${day}/${month}/${year}`;
+  };
+
+  // delete
+  const handleDelete = (id) => {
+    const url = `http://localhost:5000/posts/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const confirm = window.confirm("Do you Want to Delete?");
+        if (confirm) {
+          if (data.deletedCount > 0) {
+            document.location.reload();
+          }
+        }
+      });
   };
 
   return (
@@ -170,14 +190,36 @@ const User = () => {
                     </Typography>
                   </Box>
                   <Box sx={{ display: "flex", justifyContent: "end" }}>
-                    <IconButton
-                      onClick={() => {
-                        console.log("Delete");
-                      }}
-                      aria-label="settings"
-                    >
-                      <MoreHorizIcon />
-                    </IconButton>
+                    {user.email === singleUser.email ? (
+                      <IconButton
+                        onClick={() => {
+                          handleDelete(postData?._id);
+                        }}
+                        aria-label="settings"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-trash"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="#ff2825"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <line x1="4" y1="7" x2="20" y2="7" />
+                          <line x1="10" y1="11" x2="10" y2="17" />
+                          <line x1="14" y1="11" x2="14" y2="17" />
+                          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                          <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                        </svg>
+                      </IconButton>
+                    ) : (
+                      ""
+                    )}
                   </Box>
                 </Box>
 
