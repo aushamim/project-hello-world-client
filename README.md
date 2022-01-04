@@ -14,4 +14,5 @@
 - From the homepage, User can post their thoughts.
 - User can also post image from the homepage.
 - User can add new story.
+- User can delete their post
 - User can navigate through other user’s profile and view their posts.
