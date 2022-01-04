@@ -1,7 +1,8 @@
-import { Box } from "@mui/material";
-import React from "react";
+import { Box, Button } from "@mui/material";
+import React, { useState } from "react";
 import "./Story.css";
 import defaultStory from "./Media/default.jpg";
+import { styled } from "@mui/material/styles";
 
 const Story = () => {
   const stories = [
@@ -107,6 +108,13 @@ const Story = () => {
     },
   ];
 
+  const [storyImage, setStoryImage] = useState(null);
+  console.log(storyImage);
+
+  const Input = styled("input")({
+    display: "none",
+  });
+
   window.onload = function () {
     const slider = document.querySelector(".storyContainer");
     let isDown = false;
@@ -164,26 +172,42 @@ const Story = () => {
             width: "fit-content",
             position: "absolute",
             top: "72px",
-            left: "27px",
+            left: "20px",
           }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-square-plus"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="#ffffff"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <rect x="4" y="4" width="16" height="16" rx="2" />
-            <line x1="9" y1="12" x2="15" y2="12" />
-            <line x1="12" y1="9" x2="12" y2="15" />
-          </svg>
+          <label htmlFor="image-in">
+            <Input
+              accept="image/*"
+              id="image-in"
+              type="file"
+              onChange={(e) => {
+                setStoryImage(e.target.files[0]);
+              }}
+            />
+            <Button
+              color="primary"
+              aria-label="upload picture"
+              component="span"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-square-plus"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="#ffffff"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <line x1="9" y1="12" x2="15" y2="12" />
+                <line x1="12" y1="9" x2="12" y2="15" />
+              </svg>
+            </Button>
+          </label>
         </div>
       </Box>
       {/* Users */}

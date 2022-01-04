@@ -2,7 +2,6 @@ import { styled } from "@mui/material/styles";
 import { PhotoCamera } from "@mui/icons-material";
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-
 import { Box } from "@mui/system";
 import useAuth from "../Hooks/useAuth";
 import axios from "axios";
@@ -24,6 +23,7 @@ const NewPostBox = () => {
   const handlePost = (e) => {
     if (!image) {
       setImage("");
+      setImgCaption("");
     }
     if (!postData) {
       setPostData("");
@@ -42,23 +42,22 @@ const NewPostBox = () => {
       ...iCaption,
       time,
     };
-
-    // console.log(finalData);
+    console.log(finalData);
 
     axios.post("http://localhost:5000/posts", finalData).then((res) => {
       console.log(res.data);
+      // document.location.reload();
     });
   };
 
   function encodeImageFileAsURL(target) {
-    const file = target;
-    const reader = new FileReader();
-    reader.onloadend = function () {
-      setImage(reader.result);
+    const filePost = target;
+    const readerPost = new FileReader();
+    readerPost.onloadend = function () {
+      setImage(readerPost.result);
     };
-    reader.readAsDataURL(file);
+    readerPost.readAsDataURL(filePost);
   }
-  console.log(image);
 
   const Input = styled("input")({
     display: "none",
