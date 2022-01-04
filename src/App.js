@@ -16,7 +16,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/coming" element={<ComingSoon></ComingSoon>}></Route>
-            <Route path="/user" element={<User></User>}></Route>
+            <Route
+              path="/user/:id"
+              element={
+                <PrivateRoute>
+                  <User></User>
+                </PrivateRoute>
+              }
+            ></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/admin" element={<Dashboard></Dashboard>}></Route>
             <Route

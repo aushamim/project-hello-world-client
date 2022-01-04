@@ -7,12 +7,16 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AlertDialog from "./Dialog";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
+// import useAuth from "../../Hooks/useAuth";
+
 const Post = ({ post }) => {
-  const { displayName, proImage, postData, time, postImage, imgCaption } = post;
+  // const { singleUser } = useAuth();
+
+  const { displayName, proImage, postData, time, postImage, imgCaption, UID } =
+    post;
   const [open, setOpen] = useState(false);
   const handlePost = () => {
     setOpen(true);
@@ -53,7 +57,7 @@ const Post = ({ post }) => {
             marginBottom: "10px",
           }}
         >
-          <Link to="/user">
+          <Link to={`/user/${UID}`}>
             <Box>
               <img
                 src={proImage}
@@ -72,9 +76,9 @@ const Post = ({ post }) => {
             <Typography variant="caption"> {handleDate(time)}</Typography>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "end" }}>
-            <IconButton onClick={handlePost} aria-label="settings">
+            {/* <IconButton onClick={handlePost} aria-label="settings">
               <MoreHorizIcon />
-            </IconButton>
+            </IconButton> */}
           </Box>
         </Box>
 

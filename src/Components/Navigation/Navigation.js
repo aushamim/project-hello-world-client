@@ -48,7 +48,7 @@ const Navigation = () => {
           }}
         >
           <Box sx={{ width: "80px", marginRight: "10px" }}>
-            <Link to="/user">
+            <Link to={`/user/${singleUser._id}`}>
               <img
                 src={singleUser?.photoURL}
                 alt="Kakku"
@@ -162,7 +162,10 @@ const Navigation = () => {
                 </Box>
               </Link>
               <hr style={{ border: "1px solid #eee" }} />
-              <Link to="/user" style={{ textDecoration: "none" }}>
+              <Link
+                to={`/user/${singleUser._id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +308,7 @@ const Navigation = () => {
               </svg>
             </Button>
           </Link>
-          <Link to="/user">
+          <Link to={`/user/${singleUser._id}`}>
             <Button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

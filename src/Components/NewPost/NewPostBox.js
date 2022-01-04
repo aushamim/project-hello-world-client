@@ -44,7 +44,7 @@ const NewPostBox = () => {
       ...iCaption,
       time,
     };
-    console.log(finalData);
+    // console.log(finalData);
 
     axios
       .post("http://localhost:5000/posts", finalData)

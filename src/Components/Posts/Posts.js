@@ -12,17 +12,9 @@ const Posts = () => {
       .then((sortedData) => setUserPost(sortedData));
   }, []);
   return (
-    <Box
-      sx={
-        {
-          // marginLeft: { xs: "auto", lg: "50px" },
-          // marginRight: { xs: "auto", lg: "50px" },
-          // width: { xs: "max-content", lg: "300px" },
-        }
-      }
-    >
+    <Box>
       {userPosts.map((post) => (
-        <Post post={post} key={post.id}></Post>
+        <Post post={post} key={post._id}></Post>
       ))}
     </Box>
   );
