@@ -7,7 +7,7 @@ const Contacts = () => {
   const [contacts, setContacts] = useState([]);
 
   useState(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://enigmatic-reef-50171.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setContacts(data));
   }, []);

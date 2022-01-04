@@ -5,7 +5,7 @@ const useSingleData = () => {
   const { user } = useAuth();
   const [singleUser, setSingleUser] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/users`)
+    fetch(`https://enigmatic-reef-50171.herokuapp.com/users`)
       .then((res) => res.json())
       .then((data) => data.filter((x) => x.email === user.email))
       .then((newData) => setSingleUser(newData[0]));

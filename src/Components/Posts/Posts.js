@@ -7,7 +7,7 @@ import loadingImg from "../Media/loadingImg/loading.gif";
 const Posts = () => {
   const [userPosts, setUserPost] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("https://enigmatic-reef-50171.herokuapp.com/posts")
       .then((res) => res.json())
       .then((data) => data.sort((a, b) => b.time - a.time))
       .then((sortedData) => setUserPost(sortedData));
