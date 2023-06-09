@@ -145,7 +145,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName, photoURL, method) => {
     const user = { email, displayName, photoURL };
 
-    fetch("https://enigmatic-reef-50171.herokuapp.com/users", {
+    fetch("https://project-hello-world-server-moshiur01.vercel.app/users", {
       method: method,
       headers: {
         "content-type": "application/json",

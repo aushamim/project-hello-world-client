@@ -17,14 +17,14 @@ const User = () => {
   // load a single user
   const [singleUser, setSingleUser] = useState({});
   useEffect(() => {
-    fetch(`https://enigmatic-reef-50171.herokuapp.com/users/${id}`)
+    fetch(`https://project-hello-world-server-moshiur01.vercel.app/users/${id}`)
       .then((res) => res.json())
       .then((data) => setSingleUser(data));
   }, [id]);
 
   const [userPostData, setUserPostData] = useState([]);
   useEffect(() => {
-    fetch("https://enigmatic-reef-50171.herokuapp.com/posts")
+    fetch("https://project-hello-world-server-moshiur01.vercel.app/posts")
       .then((res) => res.json())
       .then((data) => data.sort((a, b) => b.time - a.time))
       .then((data) => data.filter((x) => x.UID === id))
@@ -47,7 +47,7 @@ const User = () => {
 
   // delete
   const handleDelete = (id) => {
-    const url = `https://enigmatic-reef-50171.herokuapp.com/posts/${id}`;
+    const url = `https://project-hello-world-server-moshiur01.vercel.app/posts/${id}`;
     fetch(url, {
       method: "DELETE",
     })
