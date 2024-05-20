@@ -1,12 +1,9 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useParams } from "react-router-dom";
 import Contacts from "../../Components/Contacts/Contacts";
 import Header from "../../Components/Header/Header";
 import Navigation from "../../Components/Navigation/Navigation";
-import Requests from "../../Components/Request/Requests";
-import { useParams } from "react-router-dom";
-import loadingImg from "../../Components/Media/loadingImg/loading.gif";
 
 import useAuth from "../../Components/Hooks/useAuth.js";
 
@@ -17,14 +14,14 @@ const User = () => {
   // load a single user
   const [singleUser, setSingleUser] = useState({});
   useEffect(() => {
-    fetch(`https://project-hello-world-server-moshiur01.vercel.app/users/${id}`)
+    fetch(`https://project-hello-world-server.vercel.app/users/${id}`)
       .then((res) => res.json())
       .then((data) => setSingleUser(data));
   }, [id]);
 
   const [userPostData, setUserPostData] = useState([]);
   useEffect(() => {
-    fetch("https://project-hello-world-server-moshiur01.vercel.app/posts")
+    fetch("https://project-hello-world-server.vercel.app/posts")
       .then((res) => res.json())
       .then((data) => data.sort((a, b) => b.time - a.time))
       .then((data) => data.filter((x) => x.UID === id))
@@ -47,7 +44,7 @@ const User = () => {
 
   // delete
   const handleDelete = (id) => {
-    const url = `https://project-hello-world-server-moshiur01.vercel.app/posts/${id}`;
+    const url = `https://project-hello-world-server.vercel.app/posts/${id}`;
     fetch(url, {
       method: "DELETE",
     })

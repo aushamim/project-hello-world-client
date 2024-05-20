@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
-  updateProfile,
   signOut,
+  updateProfile,
 } from "firebase/auth";
+import { useEffect, useState } from "react";
 import firebaseAuthentication from "../../Firebase/FirebaseInit";
 
 // call firebase config file
@@ -145,7 +145,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName, photoURL, method) => {
     const user = { email, displayName, photoURL };
 
-    fetch("https://project-hello-world-server-moshiur01.vercel.app/users", {
+    fetch("https://project-hello-world-server.vercel.app/users", {
       method: method,
       headers: {
         "content-type": "application/json",

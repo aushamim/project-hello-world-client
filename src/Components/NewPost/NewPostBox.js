@@ -1,10 +1,10 @@
-import { styled } from "@mui/material/styles";
 import { PhotoCamera } from "@mui/icons-material";
 import { Alert, Button, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
-import useAuth from "../Hooks/useAuth";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import useAuth from "../Hooks/useAuth";
 
 const NewPostBox = () => {
   const { postType, view, handleViewType, user, singleUser, setSingleUser } =
@@ -16,7 +16,7 @@ const NewPostBox = () => {
   const [imgCaption, setImgCaption] = useState("");
   const [error, setError] = useState("");
   useEffect(() => {
-    fetch(`https://project-hello-world-server-moshiur01.vercel.app/users`)
+    fetch(`https://project-hello-world-server.vercel.app/users`)
       .then((res) => res.json())
       .then((data) => data.filter((x) => x.email === user.email))
       .then((newData) => setSingleUser(newData[0]));
@@ -47,7 +47,7 @@ const NewPostBox = () => {
     // console.log(finalData);
 
     axios
-      .post("https://project-hello-world-server-moshiur01.vercel.app/posts", finalData)
+      .post("https://project-hello-world-server.vercel.app/posts", finalData)
       .then((res) => {
         if (res.data?.insertedId) {
           document.location.reload();

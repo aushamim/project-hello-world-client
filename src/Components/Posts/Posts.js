@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./Posts.css";
-import Post from "./Post/Post";
 import { Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import loadingImg from "../Media/loadingImg/loading.gif";
+import Post from "./Post/Post";
+import "./Posts.css";
 
 const Posts = () => {
   const [userPosts, setUserPost] = useState([]);
   useEffect(() => {
-    fetch("https://project-hello-world-server-moshiur01.vercel.app/posts")
+    fetch("https://project-hello-world-server.vercel.app/posts")
       .then((res) => res.json())
       .then((data) => data.sort((a, b) => b.time - a.time))
       .then((sortedData) => setUserPost(sortedData));
